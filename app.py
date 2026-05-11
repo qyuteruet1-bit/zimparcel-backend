@@ -146,7 +146,11 @@ function sendChat() {
 }
 
 // Auto-navigate after splash
-setTimeout(() => navigate('portal'), 3000);
+setTimeout(function() {
+    var screens = document.querySelectorAll('.screen');
+    if (screens.length > 0) screens[0].classList.remove('active');
+    if (screens.length > 1) screens[1].classList.add('active');
+}, 3000);
 </script>
 </body>
 </html>
